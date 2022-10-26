@@ -1,0 +1,16 @@
+{
+    "name": "sithusan/billing-system",
+    "description": "A Simple Billing System on Clean Architecture",
+    "autoload": {
+        "psr-4": {
+            "BillingSystem\\Invoicer\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Si Thu San",
+            "email": "sithusanss@gmail.com"
+        }
+    ],
+    "require": {}
+}
