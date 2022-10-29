@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace BillingSystem\Invoicer\Domain\Factory;
 
+use BillingSystem\Invoicer\Domain\Entity\Invoice;
 use BillingSystem\Invoicer\Domain\Entity\Order;
 
 /**
@@ -11,11 +12,8 @@ use BillingSystem\Invoicer\Domain\Entity\Order;
  */
 class InvoiceFactory
 {
-    public function createFromOrder(Order $order)
+    public function createFromOrder(Order $order): Invoice
     {
-    }
-
-    public function test()
-    {
+        return new Invoice();
     }
 }

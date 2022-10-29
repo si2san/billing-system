@@ -2,6 +2,7 @@
 
 declare(strict_types=1);
 
+use BillingSystem\Invoicer\Domain\Entity\Invoice;
 use BillingSystem\Invoicer\Domain\Entity\Order;
 use BillingSystem\Invoicer\Domain\Factory\InvoiceFactory;
 
@@ -17,9 +18,7 @@ describe('InvoiceFactory', function () {
                 $factory = new InvoiceFactory();
                 $invoice = $factory->createFromOrder($order);
 
-                except($invoice)->to->be->instanceof(
-                    'BillingSystem\Invoicer\Domain\Entity\Invoice'
-                );
+                assert($invoice instanceof Invoice);
             });
         });
     });
