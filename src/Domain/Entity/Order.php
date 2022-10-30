@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace BillingSystem\Invoicer\Domain\Entity;
 
+use BillingSystem\Invoicer\Utility\Helpers;
+
 /**
  * @author Si Thu San
  */
@@ -15,7 +17,7 @@ class Order extends AbstractEntity
 
     protected string $description;
 
-    protected int $total;
+    protected ?int $total;
 
     public function getCustomer(): Customer
     {
@@ -53,12 +55,20 @@ class Order extends AbstractEntity
         return $this;
     }
 
-    public function getTotal(): int
+    /**
+     * TODO:// add property exist check on accessessors.
+     * Problem of using setter intialization
+     */
+    public function getTotal(): ?int
     {
-        return $this->total;
+        if (Helpers::isPropertyInitialized($this)) {
+            return $this->total;
+        }
+
+        return null;
     }
 
-    public function setTotal(int $total): self
+    public function setTotal(?int $total): self
     {
         $this->total = $total;
 

@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace BillingSystem\Invoicer\Domain\Entity;
 
+use DateTime;
+
 /**
  * @author Si Thu San
  */
@@ -11,9 +13,9 @@ class Invoice extends AbstractEntity
 {
     protected Order $order;
 
-    protected string $invoiceDate;
+    protected DateTime $invoiceDate;
 
-    protected $total;
+    protected ?int $total;
 
     public function getOrder(): Order
     {
@@ -27,12 +29,12 @@ class Invoice extends AbstractEntity
         return $this;
     }
 
-    public function getInvoiceDate(): string
+    public function getInvoiceDate(): DateTime
     {
-        return $this->getInvoiceDate;
+        return $this->invoiceDate;
     }
 
-    public function setInvoiceDate(string $invoiceDate): self
+    public function setInvoiceDate(DateTime $invoiceDate): self
     {
         $this->invoiceDate = $invoiceDate;
 
@@ -44,7 +46,7 @@ class Invoice extends AbstractEntity
         return $this->total;
     }
 
-    public function setTotal(int $total): self
+    public function setTotal(?int $total): self
     {
         $this->total = $total;
 

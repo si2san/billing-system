@@ -19,4 +19,30 @@ class InvoiceFactoryTest extends TestCase
 
         $this->assertInstanceOf(Invoice::class, $invoice);
     }
+
+    public function testShouldSetTheTotalOfTheInvoice(): void
+    {
+        $order = new Order();
+        $order->setTotal(500);
+
+        $invoice = (new InvoiceFactory())->createFromOrder($order);
+
+        $this->assertEquals(500, $invoice->getTotal());
+    }
+
+    public function testShouldAssociateTheOrderToTheInvoice(): void
+    {
+        $order = new Order();
+        $invoice = (new InvoiceFactory())->createFromOrder($order);
+
+        $this->assertEquals($order, $invoice->getOrder());
+    }
+
+    public function testShouldSetTheDateOfTheInvoice(): void
+    {
+        $order = new Order();
+        $invoice = (new InvoiceFactory())->createFromOrder($order);
+
+        $this->assertEqualsWithDelta((new DateTime())->getTimestamp(), $invoice->getInvoiceDate()->getTimestamp(), 5);
+    }
 }
