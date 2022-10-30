@@ -13,6 +13,9 @@
         }
     ],
     "require": {
-        "peridot-php/peridot": "^1.19"
+        "phpunit/phpunit": "^9.5"
+    },
+    "scripts": {
+        "test": "./vendor/bin/phpunit"
     }
 }
