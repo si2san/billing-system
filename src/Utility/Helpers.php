@@ -8,9 +8,11 @@ use ReflectionProperty;
 
 final class Helpers
 {
-    public static function dd(mixed $value): void
+    public static function dd(): void
     {
-        die(\var_dump($value));
+        $args = func_get_args();
+        \call_user_func_array('var_dump', $args);
+        die();
     }
 
     public static function isPropertyInitialized(Object $object): bool

@@ -8,8 +8,8 @@ namespace BillingSystem\Invoicer\Domain\Repository;
 interface OrderRepositoryInterface extends RepositoryInterface
 {
     /**
-     * TODO:: Decleare Types.
+     * TODO:: Declare Types.
      */
 
-    public function getUninvoicedOrders();
+    public function getUnInvoicedOrders();
 }
